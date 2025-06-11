@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Предложить новость</title>
+  <link rel="stylesheet" href="styles/addnews.css">
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="back-button">
+        <a href="/" class="btn-back">← На главную</a>
+      </div>
+      <form id="addNewsForm" enctype="multipart/form-data" class="styled-form">
+        <div class="form-group">
+          <label for="title">Заголовок</label>
+          <input type="text" id="title" name="title" placeholder="Введите заголовок новости" required>
+        </div>
+        <div class="form-group">
+          <label for="fulldescription">Текст новости</label>
+          <textarea id="fulldescription" name="description" placeholder="Введите краткое описание новости" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="img">Изображение</label>
+          <input type="file" id="img" name="img" accept="image/*">
+        </div>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="date">Дата</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="form-group half-width">
+            <label for="author">Автор</label>
+            <input type="text" id="author" name="author" placeholder="Имя автора">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="city">Город</label>
+          <select id="city" name="cityId" required>
+            <option value="" disabled selected>Выберите город</option>
+            <option value="1">Оренбург</option>
+            <option value="2">Орск</option>
+            <option value="3">Оренбургская область</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category">Категория</label>
+          <select id="category" name="categoryId" required>
+            <option value="" disabled selected>Выберите категорию</option>
+            <option value="1">Политика</option>
+            <option value="2">Экономика</option>
+            <option value="3">Общество</option>
+            <option value="4">Культура</option>
+            <option value="5">Спорт</option>
+            <option value="6">Происшествия</option>
+            <option value="7">Наука и технологии</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Добавить новость</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="scripts/suggestedNews.js"></script>
+</body>
+</html>

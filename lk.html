@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль пользователя</title>
+  <link rel="stylesheet" href="styles/lk.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header_wrapper">
+      <div class="first_part">
+        <a href="index.html">
+          <img src="styles/images/logotipe 1.svg" alt="" class="logo">
+        </a>
+        <form id="searchForm">
+          <input type="text" placeholder="Поиск новостей..." id="searchInput">
+          <div id="searchResults" class="search-results"></div>
+        </form>
+      </div>
+      <div class="second_part">
+        <a href="#">
+          <img src="styles/images/Speech Bubble.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="content_wrapper">
+        <div class="menu">
+          <div class="menu_wrapper">
+            <div class="menu_links">
+                                <a href="index.html" class="go">Главная</a>
+                                <a href="index-sport.html" class="go">Спорт</a>
+                                <a href="index-economic.html" class="go">Экономика</a>
+                                <a href="index-politic.html" class="go">Политика</a>
+                                <a href="index-socity.html" class="go">Общество</a>
+                                <a href="map.html" class="go">Карта новостей</a>
+                                <a href="radio.html" class="go">Радио</a>
+                            </div>
+          </div>
+        </div>
+
+        <div class="novosti">
+          <div class="white-block">
+            <div class="profile-section">
+              <h1 class="zag">Личный кабинет</h1>
+
+              <div class="profile-card">
+                <div class="profile-info">
+                  <div class="user-avatar">
+                    <img src="styles/images/Male User.png" alt="Аватар пользователя">
+                  </div>
+                  <div class="user-details">
+                    <h2><span id="name-view"></span></h2>
+                    <p><span id="email-view"></span></p>
+                  </div>
+                </div>
+
+                <div class="profile-actions">
+                  <a href="/auth/logout" class="action-btn logout-btn">Выйти</a>
+                  <a href="addnews.html" class="action-btn addnews-btn">Добавить новость</a>
+                  <a href="admin-panel.html" id="adminPanelBtn" class="action-btn admin-btn" style="display: none;">Панель администратора</a>
+                  <a href="editor-panel.html" id="editorPanelBtn" class="action-btn editor-btn" style="display: none;">Панель редактора</a>
+                </div>
+              </div>
+
+              <div class="edit-profile-form">
+                <h2>Редактировать профиль</h2>
+                <form action="/edit-profile" method="POST">
+                  <div class="form-group">
+                    <label for="newName">Новое имя пользователя</label>
+                    <input type="text" name="username" id="newName" placeholder="Введите новое имя">
+                  </div>
+                  <div class="form-group">
+                    <label for="newPassword">Новый пароль</label>
+                    <input type="password" name="password" id="newPassword" placeholder="Введите новый пароль">
+                  </div>
+                  <button type="submit" class="save-btn">Сохранить изменения</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Подвал (footer) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="ft_s">
+          <p class="inf_f">+7 (905) 89-83-056</p>
+          <p class="inf_f">info@ural56.ru</p>
+        </div>
+      </div>
+      <div class="footer-section">
+        <div class="ft_s">
+          <p>© Урал56.Ру, 2023. По вопросам рекламы: (3537) 340-200. Использование материалов сайта разрешено при
+            условии гиперссылки на источник: <a href="https://www.ural56.ru/">www.ural56.ru.</a></p>
+          <p>Обратная связь: <a href="info@ural56.ru">info@ural56.ru</a><a href="https://uraltv.ru/ural56"> Реклама на
+              сайте.</a></p>
+          <a href="https://dzen.ru/ural56ru?favid=15334">Читать ural56.ru в Дзен.</a>
+          <a href="https://www.ural56.ru/soglashenie/">Политика конфиденциальности.</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/client.js" defer></script>
+</body>
+
+</html>

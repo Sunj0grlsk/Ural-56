@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Радио</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header_wrapper">
+            <div class="first_part">
+                <a href="index.html">
+                    <img src="styles/images/logotipe 1.svg" alt="" class="logo">
+                </a>
+                <form id="searchForm">
+                    <input type="text" placeholder="Поиск новостей..." id="searchInput">
+                    <div id="searchResults" class="search-results"></div>
+                </form>
+            </div>
+            <div class="second_part">
+                <a href="#" id="myBtn">
+                    <img src="styles/images/Male User.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="styles/images/Speech Bubble.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="content_wrapper">
+                <div class="menu">
+                    <div class="container">
+                        <div class="menu_wrapper">
+                            <div class="menu_links">
+                                <a href="index.html" class="go">Главная</a>
+                                <a href="index-sport.html" class="go">Спорт</a>
+                                <a href="index-economic.html" class="go">Экономика</a>
+                                <a href="index-politic.html" class="go">Политика</a>
+                                <a href="index-socity.html" class="go">Общество</a>
+                                <a href="map.html" class="go">Карта новостей</a>
+                                <a href="radio.html" class="go">Радио</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="novosti">
+                    <div class="container">
+                        <div class="info_wrapper">
+                            <div class="first_part_info">
+                                <div id="datetime" class="date"></div>
+                                <div id="exchange-rates" class="exchange-rates">
+                                    <p class="money">$ <span id="usd-rate">Загрузка...</span></p>
+                                    <p class="money">€<span id="eur-rate">Загрузка...</span></p>
+                                </div>
+                            </div>
+                            <div class="second_part_info">
+                                <div class="weather-widget">
+                                    <div class="weather-info">
+                                        <div class="weather_ii">
+                                            <p>Сейчас: <span id="temperature">-</span> °C</p>
+                                            <p>Ощущается: <span id="feels-like">-</span> °C</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- Радио плеер -->
+                    <div class="radio-container">
+        <div class="radio-player-wrapper">
+            <!-- Блок с выбранной станцией и управлением -->
+            <div class="radio-station-info">
+                <div class="station-logo-wrapper">
+    <img id="station-logo" src="https://via.placeholder.com/150" alt="Логотип станции" class="station-logo">
+    <button id="play-pause-btn" class="play-pause-btn">▶</button>
+</div>
+                <div class="station-details">
+                    <h2 id="station-name">Выберите станцию</h2>
+                    <p id="station-description">Наслаждайтесь любимой музыкой</p>
+                    
+                    <!-- Блок управления громкостью -->
+                    <div class="player-controls">
+                        <div class="volume-control-wrapper">
+                            <button class="volume-icon-btn">🔊</button>
+                            <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <!-- Список станций -->
+            <div class="station-list">
+                <div class="station-category">
+                    <h3>Популярные радиостанции</h3>
+                    <div class="stations-grid">
+                        <!-- Европа Плюс -->
+                        <div class="station-item" 
+                             data-stream="http://ep128.hostingradio.ru:8030/ep128" 
+                             data-name="Европа Плюс" 
+                             data-description="Хиты 90-х и 2000-х" 
+                             data-logo="styles/images/europa.webp"
+                             data-api="https://api.radiorecord.ru/api/v2/stations/now/europaplus">
+                            <img src="styles/images/europa.webp" alt="Европа Плюс">
+                            <span>Европа Плюс</span>
+                        </div>
+                        
+                        <!-- Ретро FM -->
+                        <div class="station-item" 
+                             data-stream="http://retroserver.streamr.ru:8043/retro256.mp3" 
+                             data-name="Ретро FM" 
+                             data-description="Музыка 70-х, 80-х и 90-х" 
+                             data-logo="styles/images/radio-retro-fm 2.svg"
+                             data-api="https://api.radiorecord.ru/api/v2/stations/now/retro">
+                            <img src="styles/images/radio-retro-fm 2.svg" alt="Ретро FM">
+                            <span>Ретро FM</span>
+                        </div>
+                        
+                        <!-- Авторадио -->
+                        <div class="station-item" 
+                             data-stream="http://pub0301.101.ru:8000/stream/air/mp3/256/200" 
+                             data-name="Авторадио" 
+                             data-description="Музыка для автолюбителей" 
+                             data-logo="styles/images/dpYiPn83Wto.jpg"
+                             data-api="https://api.radiorecord.ru/api/v2/stations/now/avtoradio">
+                            <img src="styles/images/dpYiPn83Wto.jpg" alt="Авторадио">
+                            <span>Авторадио</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+                    
+                    <!-- Модальные окна (оставлены из шаблона) -->
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <div class="mod_z">
+                                    <h2 class="modal_zag">Авторизация</h2>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <form id="loginForm" action="/auth/login" method="POST">
+                                    <div class="modal_imputs">
+                                        <input type="email" name="email" id="loginEmail" class="mod_email"
+                                            placeholder="Почта">
+                                        <input type="password" name="password" id="loginPassword" class="mod_email"
+                                            placeholder="Пароль">
+                                    </div>
+                                    <div class="md_btn">
+                                        <button class="mod_btn" type="submit">Войти</button>
+                                </form>
+                                <button class="reg" id="reg" type="button">Зарегистрироваться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="regModal" class="modalik">
+                    <div class="modalik-content">
+                        <div class="modalik-header">
+                            <span class="close-reg">&times;</span>
+                            <div class="mod_z">
+                                <h2 class="modal_zag">Регистрация</h2>
+                            </div>
+                        </div>
+                        <div class="modalik-body">
+                            <div class="modal_imputs">
+                                <form id="regForm" action="/auth/register" method="POST">
+                                    <input type="text" name="name" id="regUsername" class="mod_username"
+                                        placeholder="Имя пользователя">
+                                    <input type="email" name="email" id="regEmail" class="mod_email"
+                                        placeholder="Почта">
+                                    <input type="password" name="password" id="regPassword" class="mod_password"
+                                        placeholder="Пароль">
+                            </div>
+                            <div class="md_btn">
+                                <button class="mod_btn" id="registerButton" type="submit">Зарегистрироваться</button>
+                                </form>
+                                <button class="modalik_btn" id="backToLoginButton" type="button">Назад к
+                                    авторизации</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="ft_s">
+              <p class="inf_f">+7 (905) 89-83-056</p>
+            <p class="inf_f">info@ural56.ru</p>
+            </div>
+          </div>
+          <div class="footer-section">
+            <div class="ft_s">
+              <p>© Урал56.Ру, 2023. По вопросам рекламы: (3537) 340-200. Использование материалов сайта разрешено при условии гиперссылки на источник: <a href="https://www.ural56.ru/">www.ural56.ru.</a>
+            </p>
+            <p>Обратная связь: <a href="info@ural56.ru">info@ural56.ru</a><a href="https://uraltv.ru/ural56"> Реклама на сайте.</a></p>
+            <a href="https://dzen.ru/ural56ru?favid=15334">Читать ural56.ru в Дзен.</a>
+            <a href="https://www.ural56.ru/soglashenie/">Политика конфиденциальности.</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+        </div>
+    </footer>
+    
+    <script src="scripts/script.js" defer></script>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const stationItems = document.querySelectorAll('.station-item');
+            const stationName = document.getElementById('station-name');
+            const stationDescription = document.getElementById('station-description');
+            const stationLogo = document.getElementById('station-logo');
+            const volumeSlider = document.getElementById('volume-slider');
+            const currentTrackElement = document.getElementById('current-track');
+            
+            // Скрытый аудио элемент
+            const audioElement = document.createElement('audio');
+            document.body.appendChild(audioElement);
+            
+            // Установка громкости по умолчанию
+            audioElement.volume = volumeSlider.value;
+            
+            // Обработчик изменения громкости
+            volumeSlider.addEventListener('input', function() {
+                audioElement.volume = this.value;
+            });
+            
+            // Обработчик кнопки воспроизведения/паузы
+            playPauseBtn.addEventListener('click', function() {
+                if (audioElement.paused) {
+                    audioElement.play()
+                        .then(() => {
+                            playPauseBtn.textContent = '❚❚';
+                            updateNowPlaying();
+                        })
+                        .catch(e => {
+                            console.error('Ошибка воспроизведения:', e);
+                            alert('Не удалось воспроизвести радиостанцию. Попробуйте другую станцию.');
+                        });
+                } else {
+                    audioElement.pause();
+                    playPauseBtn.textContent = '▶';
+                    currentTrackElement.textContent = 'Радио на паузе';
+                }
+            });
+            
+            // Функция для обновления информации о текущем треке
+            function updateNowPlaying() {
+                const activeStation = document.querySelector('.station-item.active');
+                if (!activeStation) return;
+                
+                const apiUrl = activeStation.getAttribute('data-api');
+                if (!apiUrl) {
+                    currentTrackElement.textContent = 'Информация о треке недоступна';
+                    return;
+                }
+                
+                // Запрос к API для получения текущего трека
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.result && data.result.now) {
+                            const track = data.result.now;
+                            currentTrackElement.textContent = `${track.artist} - ${track.song}`;
+                        } else {
+                            currentTrackElement.textContent = 'Информация о треке недоступна';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при получении информации о треке:', error);
+                        currentTrackElement.textContent = 'Не удалось загрузить информацию о треке';
+                    });
+                
+                // Обновляем каждые 30 секунд
+                setTimeout(updateNowPlaying, 30000);
+            }
+            
+            // Переключение станций
+            stationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const streamUrl = this.getAttribute('data-stream');
+                    const name = this.getAttribute('data-name');
+                    const description = this.getAttribute('data-description');
+                    const logo = this.getAttribute('data-logo');
+                    
+                    // Обновляем информацию о станции
+                    stationName.textContent = name;
+                    stationDescription.textContent = description;
+                    stationLogo.src = logo;
+                    
+                    // Удаляем активный класс у всех станций
+                    stationItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Добавляем активный класс к выбранной станции
+                    this.classList.add('active');
+                    
+                    // Устанавливаем новый источник
+                    audioElement.src = streamUrl;
+                    
+                    // Автоматически начинаем воспроизведение
+                    audioElement.play()
+                        .then(() => {
+                            playPauseBtn.textContent = '❚❚';
+                            updateNowPlaying();
+                        })
+                        .catch(e => {
+                            console.error('Ошибка воспроизведения:', e);
+                            playPauseBtn.textContent = '▶';
+                            currentTrackElement.textContent = 'Ошибка воспроизведения';
+                        });
+                });
+            });
+            
+            // Автовоспроизведение первой станции
+            if (stationItems.length > 0) {
+                stationItems[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

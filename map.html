@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта новостей | Урал ТВ</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/map.css">
+    <!-- Leaflet CSS -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header_wrapper">
+            <div class="first_part">
+                <a href="index.html">
+                    <img src="styles/images/logotipe 1.svg" alt="" class="logo">
+                </a>
+                <form id="searchForm">
+                    <input type="text" placeholder="Поиск новостей..." id="searchInput">
+                    <div id="searchResults" class="search-results"></div>
+                </form>
+            </div>
+            <div class="second_part">
+                <a href="#" id="myBtn">
+                    <img src="styles/images/Male User.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="styles/images/Speech Bubble.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="content_wrapper">
+                <div class="menu">
+                    <div class="container">
+                        <div class="menu_wrapper">
+                            <div class="menu_links">
+                                <a href="index.html" class="go">Главная</a>
+                                <a href="index-sport.html" class="go">Спорт</a>
+                                <a href="index-economic.html" class="go">Экономика</a>
+                                <a href="index-politic.html" class="go">Политика</a>
+                                <a href="index-socity.html" class="go">Общество</a>
+                                <a href="map.html" class="go">Карта новостей</a>
+                                <a href="radio.html" class="go">Радио</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="novosti">
+                    <div class="container">
+                        <div class="info_wrapper">
+                            <div class="first_part_info">
+                                <div id="datetime" class="date"></div>
+                                <div id="exchange-rates" class="exchange-rates">
+                                    <p class="money">$ <span id="usd-rate">Загрузка...</span></p>
+                                    <p class="money">€<span id="eur-rate">Загрузка...</span></p>
+                                </div>
+                            </div>
+                            <div class="second_part_info">
+                                <div class="weather-widget">
+                                    <div class="weather-info">
+                                        <div class="weather_ii">
+                                            <p>Сейчас: <span id="temperature">-</span> °C</p>
+                                            <p>Ощущается: <span id="feels-like">-</span> °C</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <h1 class="zag">Новости на карте Оренбургской области</h1>
+                        <div class="map-container">
+                            <div class="map-wrapper">
+                                <!-- Контейнер для карты Leaflet -->
+                                <div id="news-map"></div>
+                            </div>
+                            
+                            <div class="news-sidebar">
+                                <h3>Новости по городам</h3>
+                                <div id="city-filter">
+                                    <button class="filter-btn active" data-city="all">Все города</button>
+                                    <button class="filter-btn" data-city="Оренбург">Оренбург</button>
+                                    <button class="filter-btn" data-city="Орск">Орск</button>
+                                    <button class="filter-btn" data-city="Новотроицк">Новотроицк</button>
+                                    <button class="filter-btn" data-city="Бугуруслан">Бугуруслан</button>
+                                    <button class="filter-btn" data-city="Бузулук">Бузулук</button>
+                                </div>
+                                <div id="news-list-container">
+                                    <!-- Новости будут загружаться здесь -->
+                                    <div class="loading">Загрузка новостей...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="ft_s">
+                    <p class="inf_f">+7 (905) 89-83-056</p>
+                    <p class="inf_f">info@ural56.ru</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="ft_s">
+                    <p>© Урал56.Ру, 2023. По вопросам рекламы: (3537) 340-200. Использование материалов сайта разрешено при условии гиперссылки на источник: <a href="https://www.ural56.ru/">www.ural56.ru.</a></p>
+                    <p>Обратная связь: <a href="info@ural56.ru">info@ural56.ru</a><a href="https://uraltv.ru/ural56"> Реклама на сайте.</a></p>
+                    <a href="https://dzen.ru/ural56ru?favid=15334">Читать ural56.ru в Дзен.</a>
+                    <a href="https://www.ural56.ru/soglashenie/">Политика конфиденциальности.</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"></div>
+    </footer>
+
+    <!-- Модальные окна (как в основном шаблоне) -->
+    <div id="myModal" class="modal">
+        <!-- Содержимое модального окна авторизации -->
+    </div>
+    
+    <div id="regModal" class="modalik">
+        <!-- Содержимое модального окна регистрации -->
+    </div>
+
+    <script src="scripts/script.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=d392369f-8e90-4c87-a954-376d48bd963c&lang=ru_RU" type="text/javascript"></script>
+    <script src="scripts/map.js"></script>
+</body>
+</html>

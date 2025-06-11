@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование новости</title>
+  <link rel="stylesheet" href="styles/lk.css">
+  <style>
+    /* Добавим стили для редактора текста */
+    .editor-toolbar {
+      background: #f5f5f5;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px 4px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .editor-toolbar button {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .editor-toolbar button:hover {
+      background: #eee;
+    }
+    #fullDescription {
+      min-height: 200px;
+      border: 1px solid #ddd;
+      border-radius: 0 0 4px 4px;
+      padding: 10px;
+      width: 100%;
+    }
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-submit {
+      background-color: #3498db;
+      color: white;
+    }
+    .btn-delete {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .btn-publish {
+      background-color: #2ecc71;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="back-button">
+        <a href="admin-panel.html" class="btn-back">← Назад в админ-панель</a>
+      </div>
+      
+      <form id="editSuggestedNewsForm" enctype="multipart/form-data" class="styled-form">
+        <input type="hidden" id="newsId" name="id">
+        
+        <div class="form-group">
+          <label for="title">Заголовок*</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Краткое описание*</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="fullDescription">Полный текст новости</label>
+          <div class="editor-toolbar">
+            <button type="button" onclick="formatText('bold')"><b>B</b></button>
+            <button type="button" onclick="formatText('italic')"><i>I</i></button>
+            <button type="button" onclick="formatText('underline')"><u>U</u></button>
+            <button type="button" onclick="formatText('insertUnorderedList')">• Список</button>
+            <button type="button" onclick="formatText('insertOrderedList')">1. Список</button>
+            <button type="button" onclick="formatText('createLink')">Ссылка</button>
+          </div>
+          <div id="fullDescription" contenteditable="true"></div>
+          <input type="hidden" id="fullDescriptionHidden" name="fullDescription">
+        </div>
+        
+        <div class="form-group">
+          <label for="img">Изображение</label>
+          <input type="file" id="img" name="img" accept="image/*">
+          <div id="currentImage"></div>
+          <input type="hidden" id="currentImageUrl" name="currentImageUrl">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="date">Дата публикации</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="form-group half-width">
+            <label for="author">Автор</label>
+            <input type="text" id="author" name="author">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="city">Город*</label>
+          <select id="city" name="cityId" required>
+            <option value="1">Оренбург</option>
+            <option value="2">Орск</option>
+            <option value="3">Оренбургская область</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="status">Статус*</label>
+          <select id="status" name="status" required>
+            <option value="pending">На рассмотрении</option>
+            <option value="approved">Одобрено</option>
+            <option value="rejected">Отклонено</option>
+            <option value="published">Опубликовано</option>
+          </select>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Сохранить</button>
+          <button type="button" id="deleteBtn" class="btn-delete">Удалить</button>
+          <button type="button" id="publishBtn" class="btn-publish">Опубликовать</button>
+          <button type="button" id="saveAndPublishBtn" class="btn-publish">Сохранить и опубликовать</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="scripts/editSuggestedNews.js"></script>
+</body>
+</html>
