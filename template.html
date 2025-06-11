@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <!-- Добавьте другие общие стили и скрипты -->
+</head>
+<body>
+  <header>
+    <!-- Общий хедер для всех страниц -->
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/news">Новости</a>
+    </nav>
+  </header>
+
+  <main class="news-article">
+    <h1>{{TITLE}}</h1>
+    <div class="article-meta">
+      <span class="author">{{AUTHOR}}</span>
+      <span class="date">{{DATE}}</span>
+    </div>
+    {{IMAGE}}
+    <div class="article-content">{{CONTENT}}</div>
+  </main>
+
+  <footer>
+    <!-- Общий футер для всех страниц -->
+    <p>© 2023 Ваш сайт</p>
+  </footer>
+</body>
+</html>

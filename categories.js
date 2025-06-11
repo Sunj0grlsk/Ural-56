@@ -1,17 +1,23 @@
-const express = require('express');
-const router = express.Router();
-const { Category } = require('../models/associations');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
 
-router.get('/', async (req, res) => {
-  try {
-    const categories = await Category.findAll({
-      order: [['CategoryName', 'ASC']]
-    });
-    res.json(categories);
-  } catch (error) {
-    console.error('Ошибка при получении категорий:', error);
-    res.status(500).json({ message: 'Ошибка сервера' });
+const Category = sequelize.define('Category', {
+  CategoryID: {
+    type: DataTypes.INTEGER,
+    field: 'CategoryID',
+    primaryKey: true,
+    autoIncrement: true
+  },
+  CategoryName: {
+    type: DataTypes.STRING,
+    field: 'CategoryName',
+    allowNull: false,
+    unique: true
   }
+}, {
+  tableName: 'categories',
+  timestamps: false,
+  schema: 'public'
 });
 
-module.exports = router;
+module.exports = Category;
